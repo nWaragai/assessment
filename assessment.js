@@ -47,17 +47,26 @@ function clickButtton(){
         if(userName.length === 0){
           return;
         }
-    
-          
-        const heading = document.createElement('h3');
-        heading.innerText = '診断結果';
-        resultDivision.appendChild(heading);
-    
         resultDivision.innerText = '';
+        const headerDivision = document.createElement('div');
+        headerDivision.setAttribute('class', 'card-header text-bg-primary');
+        headerDivision.innerText = '診断結果';
+  
+        const bodyDivision = document.createElement('div');
+        headerDivision.setAttribute('class', 'card-body');
+  
         const paragraph = document.createElement('p');
+        paragraph.setAttribute('class','card-text');
+        
         const result = assessment(userName);
         paragraph.innerText = result;
-        resultDivision.appendChild(paragraph);
+        bodyDivision.appendChild(paragraph);
+  
+        resultDivision.setAttribute('class','card');
+  
+        resultDivision.appendChild(headerDivision);
+        resultDivision.appendChild(bodyDivision);
+
     
         tweetButton();
       }
