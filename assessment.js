@@ -77,23 +77,40 @@ function clickButtton(){
 }
 
 function tweetButton(){
-  tweetDivision.innerText = '';
+    tweetDivision.innerText = '';
+    const anchor = document.createElement('a');
+    const hrefValue =
+      'https://x.com/intent/tweet?button_hashtag=' +
+      encodeURIComponent('あなたのいいところ') +
+      '&ref_src=twsrc%5Etfw';
 
-  const anchor = document.createElement('a');
-  const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=' + encodeURIComponent('あなたのいいところ') +'&ref_src=twsrc%5Etfw';
+    anchor.setAttribute('href', hrefValue);
+    anchor.setAttribute('class', 'twitter-hashtag-button');
+    anchor.setAttribute('data-text', result);
+    anchor.innerText = 'Tweet #あなたのいいところ';
+
+    tweetDivision.appendChild(anchor);
+
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+    tweetDivision.appendChild(script);
+  // tweetDivision.innerText = '';
+
+  // const anchor = document.createElement('a');
+  // const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=' + encodeURIComponent('あなたのいいところ') +'&ref_src=twsrc%5Etfw';
   
 
-  anchor.setAttribute('href', hrefValue)
-  anchor.setAttribute('class','twitter-hash-tag-button');
-  anchor.setAttribute('data-text','result');
-  anchor.setAttribute('data-show-count','false');
-  anchor.innerText = 'Tweet #あなたのいいところ';
-  tweetDivision.appendChild(anchor);
+  // anchor.setAttribute('href', hrefValue)
+  // anchor.setAttribute('class','twitter-hash-tag-button');
+  // anchor.setAttribute('data-text','result');
+  // anchor.setAttribute('data-show-count','false');
+  // anchor.innerText = 'Tweet #あなたのいいところ';
+  // tweetDivision.appendChild(anchor);
 
-  const script = document.createElement('script');
-  script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
-  script.setAttribute('charset','utf-8');
-  tweetDivision.appendChild(script);
+  // const script = document.createElement('script');
+  // script.setAttribute('src', 'https://platform.twitter.com/widgets.js');
+  // script.setAttribute('charset','utf-8');
+  // tweetDivision.appendChild(script);
 
 
 }
